@@ -11,7 +11,8 @@ stages:
 
 before_install:
 - docker pull mariadb
-- docker pull jeremycurny/php-magento2
+- docker pull jeremycurny/php-magento2:7.0-fpm-stretch
+- docker pull jeremycurny/php-magento2:7.1-fpm-stretch
 
 jobs:
   include:
