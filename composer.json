@@ -1,0 +1,22 @@
+{
+    "name": "jeremycurny/module-flysystem",
+    "description": "Magento2 Flysystem module",
+    "version": "0.0.1-alpha1",
+    "type": "magento2-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "email": "jeremy.curny.pro@gmail.com",
+            "name": "Jeremy Curny"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Jeremycurny\\Flysystem\\": ""
+        }
+    }
+}
