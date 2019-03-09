@@ -6,9 +6,14 @@ php:
 services:
   - docker
 
+stages:
+  - build
+
 before_install:
 - docker pull mariadb
 - docker pull jeremycurny/php-magento2
 
-script:
-- exit 1
+jobs:
+  include:
+    - stage: build
+      script: composer install --no-progress
