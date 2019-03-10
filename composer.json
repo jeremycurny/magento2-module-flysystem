@@ -14,15 +14,13 @@
         "repo.magento.com": {
             "type": "composer",
             "url": "https://repo.magento.com/"
-        },
-        "magento/marketplace-eqp": {
-            "type": "git",
-            "url": "https://github.com/magento/marketplace-eqp"
         }
     },
     "require": {
         "league/flysystem": "^1.0",
         "magento/framework": "^100.1.0"
+    },
+    "require-dev": {
     },
     "autoload": {
         "files": [
@@ -31,8 +29,5 @@
         "psr-4": {
             "Jeremycurny\\Flysystem\\": ""
         }
-    },
-    "require-dev": {
-        "magento/marketplace-eqp": "^2.0"
     }
 }
