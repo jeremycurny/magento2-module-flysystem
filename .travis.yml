@@ -12,8 +12,9 @@ stages:
 jobs:
   include:
     - stage: checkstyle
-      - script: composer install --no-progress
-      - script: vendor/bin/phpcs --standard=MEQP2 --warning-severity=10
+      script: >-
+        composer install --no-progress;
+        vendor/bin/phpcs --standard=MEQP2 --warning-severity=10
     - stage: build
       script: composer install --no-dev --no-progress
     - stage: test
