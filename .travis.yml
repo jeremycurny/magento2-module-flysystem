@@ -14,7 +14,6 @@ before_install:
   - composer global config --auth http-basic.repo.magento.com 6c7c3956d991c6459bcbf6d0d977514f 2319f30adac6169a5c30ad2cb564d177
 
 install:
-  - pwd;
   - cd $HOME
   - composer create-project --repository=https://repo.magento.com magento/marketplace-eqp magento-coding-standard
 
@@ -22,8 +21,7 @@ jobs:
   include:
     - stage: checkstyle
       script: >-
-        pwd;
-        $HOME/magento-coding-standard/vendor/bin/phpcs --standard=MEQP2 --extensions=php,phtml
+        $HOME/magento-coding-standard/vendor/bin/phpcs . --standard=MEQP2 --extensions=php,phtml
     - stage: build
       script: composer install --no-dev --no-progress
     - stage: test
