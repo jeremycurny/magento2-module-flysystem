@@ -8,14 +8,12 @@ services:
 stages:
   - build
 
-before_install:
-- docker pull mariadb
-- docker pull jeremycurny/php-magento2:7.0-fpm-stretch
-- docker pull jeremycurny/php-magento2:7.1-fpm-stretch
-
 jobs:
   include:
+    - stage: checkstyle
+      - script: composer install --no-progress
+      - script: vendor/bin/phpcs --standard=MEQP2 --warning-severity=10
     - stage: build
-      script: composer install --no-progress
+      script: composer install --no-dev --no-progress
     - stage: test
       script: exit 0
