@@ -6,6 +6,7 @@ services:
   - docker
 
 stages:
+  - checkstyle
   - build
 
 jobs:
