@@ -11,7 +11,11 @@
         }
     ],
     "repositories": {
-        "magento-marketplace-eqp": {
+        "repo.magento.com": {
+            "type": "composer",
+            "url": "https://repo.magento.com/"
+        },
+        "magento/marketplace-eqp": {
             "type": "git",
             "url": "https://github.com/magento/marketplace-eqp"
         }
