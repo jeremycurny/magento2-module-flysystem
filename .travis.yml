@@ -9,10 +9,19 @@ stages:
   - checkstyle
   - build
 
+env:
+  - MAGENTO_PUB_KEY=6c7c3956d991c6459bcbf6d0d977514f
+  - MAGENTO_PRI_KEY=2319f30adac6169a5c30ad2cb564d177
+
+before_install:
+  - composer self-update
+  - composer global config --auth http-basic.repo.magento.com $MAGENTO_PUB_KEY $MAGENTO_PRI_KEY
+
 jobs:
   include:
     - stage: checkstyle
       script: >-
+        composer validate;
         composer install --no-progress;
         vendor/bin/phpcs --standard=MEQP2 --warning-severity=10
     - stage: build
