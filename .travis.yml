@@ -6,6 +6,7 @@ services:
   - docker
 
 stages:
+  - lint
   - checkstyle
   - build
 
@@ -19,6 +20,8 @@ install:
 
 jobs:
   include:
+    - stage: lint
+      script: find . -type f -iregex ".*\.\(php\|phtml\)$" -exec php -l {} \; | (! grep -v "No syntax errors detected")
     - stage: checkstyle
       script: >-
         $HOME/magento-coding-standard/vendor/bin/phpcs . --standard=MEQP2 --extensions=php,phtml
