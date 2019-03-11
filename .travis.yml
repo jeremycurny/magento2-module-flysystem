@@ -16,7 +16,7 @@ before_install:
 
 install:
   - cd $HOME
-  - composer create-project --repository=https://repo.magento.com magento/marketplace-eqp magento-coding-standard
+  - composer create-project --repository=https://repo.magento.com magento/marketplace-eqp /tmp/magento-coding-standard
 
 jobs:
   include:
@@ -24,7 +24,7 @@ jobs:
       script: find . -type f -iregex ".*\.\(php\|phtml\)$" -exec php -l {} \; | (! grep -v "No syntax errors detected")
     - stage: checkstyle
       script: >-
-        $HOME/magento-coding-standard/vendor/bin/phpcs . --standard=MEQP2 --extensions=php,phtml
+        /tmp/magento-coding-standard/vendor/bin/phpcs . --standard=MEQP2 --extensions=php,phtml
     - stage: build
       script: composer install --no-dev --no-progress
     - stage: test
